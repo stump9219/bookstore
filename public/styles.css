@@ -24,6 +24,10 @@ header {
   text-align: center;
 }
 
+.button{
+  text-align: bottom right;
+}
+
 nav a {
   color: white;
   margin: 0 1rem;
