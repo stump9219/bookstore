@@ -25,9 +25,7 @@ header {
 }
 
 .positioned{
-  position:absolute;
-  top: 930px;
-  right: 100px;
+  position: bottom;
 }
 
 nav a {
