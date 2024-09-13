@@ -24,8 +24,10 @@ header {
   text-align: center;
 }
 
-.button{
-  text-align: bottom;
+.positioned{
+  position:absolute;
+  top: 920px;
+  right: 100px;
 }
 
 nav a {
