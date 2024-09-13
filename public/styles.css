@@ -12,6 +12,14 @@ header {
   text-align: center;
 }
 
+.banner {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 2em
+}
+
 nav a {
   color: white;
   margin: 0 1rem;
