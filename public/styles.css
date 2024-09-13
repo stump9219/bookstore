@@ -20,6 +20,10 @@ header {
   font-size: 2em
 }
 
+.container{
+  text-align: center;
+}
+
 nav a {
   color: white;
   margin: 0 1rem;
