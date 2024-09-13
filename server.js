@@ -6,8 +6,8 @@ const port = 3000;
 
 // Sample catalog data
 const catalogItems = [
-  { id: 1, name: 'Item 1', description: 'Description for item 1', image: '/path/to/image1.jpg' },
-  { id: 2, name: 'Item 2', description: 'Description for item 2', image: '/path/to/image2.jpg' },
+  { id: 1, name: 'Eragon', description: 'A boy gets a dragon and goes on an adventure.', image: '//bookstore/public/Eragon.jpg' },
+  { id: 2, name: 'Eldest', description: 'That boy and his dragon grow up and continue on their adventure.', image: '/bookstore/public/Eldest.jpg' },
   // Add more items here
 ];
 
