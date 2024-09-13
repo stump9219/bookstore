@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route for the main page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'catalog.html'));
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
 // Route for the catalog page with pagination
