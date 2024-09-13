@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+//Route for the catalog page
+app.get('/catalog', (req, res) =>{
+    res.sendFile(path.join(__dirname, 'views', 'catalog.html'));
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
