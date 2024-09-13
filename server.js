@@ -16,7 +16,18 @@ const catalogItems = [
   { id: 8, name: 'HP and the Philosophers Stone', description: "Didn't know this book sold over 100 million copies.",},
   { id: 9, name: 'Dream of the Red Chamber', description: 'This is apparently a mystery book that sold really well.',},
   { id: 10, name: 'The Hobbit.', description: 'The best book on this website to be honest',},
-  { id: 11, name: "Alice's Adventure in the Wonderland", description: 'alice had depression and this was all in her head to try and cope with reality.',},  
+  { id: 11, name: "Alice's Adventure in the Wonderland", description: 'alice had depression and this was all in her head to try and cope with reality.',},
+  { id: 12, name: "The Lion, The Witch, and The Wardrobe", description: "This one was also about depression and how kids dealt with the reality of one of the world wars."},
+  { id: 13, name: "She: A History of Adventure", description: "Ya no clue on this one what so ever."},
+  { id: 14, name: "The Da Vinci Code", description: "Tom Hanks that is all."},
+  { id: 15, name: "HP and the Chamber of Secrets", description: "another harry potter book, suprising"},
+  { id: 16, name: "The Catcher and the Rye", description: "some thing about rye and how to catch it"},
+  { id: 17, name: "HP and the Prisoner of Azkaban", description: "more potter books apparently the whole series sold really well"},
+  { id: 18, name: "The Bridges of Maddison County", description: "Maddison county and enough bridges to write a book about it."},
+  { id: 19, name: "One Hundred Years of Solitude", description: "didn't know there was a book written about the city in skyrim."},
+  { id: 20, name: "Lolita", description: "Ya I got nothing for this one."},
+  { id: 21, name: "Heidi", description: "This is a girls name and thats all I know."},
+  { id: 22, name: "Anne of Green Gabble", description: "Something about gabbles and them being green"},
   // Add more items here
 ];
 
