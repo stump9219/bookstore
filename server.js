@@ -6,8 +6,10 @@ const port = 3000;
 
 // Sample catalog data
 const catalogItems = [
-  { id: 1, name: 'Eragon', description: 'A boy gets a dragon and goes on an adventure.', image: '//bookstore/public/Eragon.jpg' },
-  { id: 2, name: 'Eldest', description: 'That boy and his dragon grow up and continue on their adventure.', image: '/bookstore/public/Eldest.jpg' },
+  { id: 1, name: 'Eragon', description: 'A boy gets a dragon and goes on an adventure.', image: '/bookstore/public/Eragon.jpg'},
+  { id: 2, name: 'Eldest', description: 'That boy and his dragon grow up and continue on their adventure.', image: '/bookstore/public/Eldest.jpg'},
+  { id: 3, name: 'Inheritance', description: 'The adventure continues, just with more people and dragons.', image: '/bookstore/public/inheritance.jpg'},
+  { id: 4, name: 'Murtagh', description: 'The brother of the original character also found a dragon and began his adventures.', image: '/bookstore/public/murtagh.jpg'},
   // Add more items here
 ];
 
