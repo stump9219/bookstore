@@ -71,12 +71,6 @@ section {
   padding: 1rem;
 }
 
-.catalog-item img {
-  max-width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ddd;
-}
-
 .catalog-item h2 {
   margin: 0.5rem 0;
 }
