@@ -15,14 +15,17 @@
     </nav>
   </header>
   <main>
-    <section class="catalog-grid">
+    <section>
+      <input type="text" id="search" placeholder="Search catalog..." onkeyup="filterCatalog()">
+    </section>
+    <section class="catalog-grid" id="catalog-grid">
       <!-- Catalog items will be inserted here -->
-      <div class="catalog-item">
+      <div class="catalog-item" data-name="Item 1">
         <img src="/path/to/image1.jpg" alt="Item 1">
         <h2>Item 1</h2>
         <p>Description for item 1</p>
       </div>
-      <div class="catalog-item">
+      <div class="catalog-item" data-name="Item 2">
         <img src="/path/to/image2.jpg" alt="Item 2">
         <h2>Item 2</h2>
         <p>Description for item 2</p>
@@ -30,5 +33,6 @@
       <!-- Add more items as needed -->
     </section>
   </main>
+  <script src="/scripts.js"></script>
 </body>
 </html>
