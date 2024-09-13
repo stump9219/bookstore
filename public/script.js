@@ -48,7 +48,7 @@ function filterCatalog() {
   items.forEach(item => {
     const itemName = item.getAttribute('data-name').toLowerCase();
     if (itemName.includes(searchInput)) {
-      item.style.display = catalog-item;
+      item.style.display = 'grid';
     } else {
       item.style.display = 'none';
     }
