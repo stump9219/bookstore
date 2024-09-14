@@ -1,0 +1,81 @@
+# Product class to represent a product in the store
+class Product:
+    def __init__(self, product_id, name, price):
+        self.product_id = product_id
+        self.name = name
+        self.price = price
+
+    def __str__(self):
+        return f"{self.name} (ID: {self.product_id}) - ${self.price}"
+
+# ShoppingCart class to handle product selection and checkout
+class ShoppingCart:
+    def __init__(self):
+        self.products = []
+        self.cart = {}
+
+    def add_product(self, product):
+        """Add a product to the available product list."""
+        self.products.append(product)
+
+    def view_products(self):
+        """View available products."""
+        if not self.products:
+            print("No products available.")
+        else:
+            print("\nAvailable products:")
+            for product in self.products:
+                print(product)
+
+    def add_to_cart(self, product_id, quantity):
+        """Add products to the cart."""
+        product = next((p for p in self.products if p.product_id == product_id), None)
+        if product:
+            if product_id in self.cart:
+                self.cart[product_id]['quantity'] += quantity
+            else:
+                self.cart[product_id] = {'product': product, 'quantity': quantity}
+            print(f"Added {quantity} of {product.name} to the cart.")
+        else:
+            print(f"Product with ID {product_id} not found.")
+
+    def view_cart(self):
+        """View the products in the cart."""
+        if not self.cart:
+            print("Your cart is empty.")
+        else:
+            print("\nYour cart:")
+            total = 0
+            for item in self.cart.values():
+                product = item['product']
+                quantity = item['quantity']
+                subtotal = product.price * quantity
+                total += subtotal
+                print(f"{product.name} - {quantity} x ${product.price} = ${subtotal}")
+            print(f"\nTotal: ${total}")
+
+    def checkout(self):
+        """Proceed to checkout."""
+        if not self.cart:
+            print("Your cart is empty, nothing to checkout.")
+        else:
+            print("\nProceeding to checkout:")
+            self.view_cart()
+            print("Thank you for your purchase!")
+
+# Example of usage
+if __name__ == "__main__":
+    # Create a shopping cart instance
+    cart = ShoppingCart()
+
+    # Add products to the store
+    cart.add_product(Product(1, "Laptop", 999.99))
+    cart.add_product(Product(2, "Smartphone", 499.99))
+    cart.add_product(Product(3, "Headphones", 199.99))
+
+    # Simulate the shopping process
+    cart.view_products()                # View all available products
+    cart.add_to_cart(1, 1)              # Add 1 Laptop to cart
+    cart.add_to_cart(2, 2)              # Add 2 Smartphones to cart
+    cart.view_cart()                    # View items in cart
+    cart.checkout()                     # Proceed to checkout
