@@ -1,0 +1,24 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+# Route to capture shipping details
+@app.route('/shipping', methods=['POST'])
+def shipping():
+    # Get shipping details from the request
+    data = request.json
+    shipping_info = {
+        "name": data["name"],
+        "address": data["address"],
+        "city": data["city"],
+        "state": data["state"],
+        "zip": data["zip"],
+        "country": data["country"],
+        "shipping_method": data["shipping-method"]
+    }
+    
+    # Save the shipping info to the database (for now just return it for simplicity)
+    return jsonify({"status": "success", "message": "Shipping details captured", "shipping_info": shipping_info})
+
+if __name__ == '__main__':
+    app.run(debug=True)
