@@ -1,0 +1,11 @@
+@app.route('/confirm-order', methods=['POST'])
+def confirm_order():
+    data = request.json
+    order_details = {
+        "shipping_info": data["shipping_info"],
+        "order_items": data["order_items"],  # List of books
+        "total_cost": data["total_cost"]
+    }
+    
+    # Save order to database and handle payment here
+    return jsonify({"status": "success", "message": "Order confirmed", "order_id": "12345"})
