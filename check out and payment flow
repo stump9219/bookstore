@@ -1,0 +1,82 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+import time
+
+# Setup WebDriver (Make sure to point to the correct path for your WebDriver)
+driver = webdriver.Chrome(executable_path='/path/to/chromedriver')
+
+try:
+    # Step 1: Open the website
+    driver.get("https://your-store-url.com")
+
+    # Step 2: Add item to cart
+    add_to_cart_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, "add-to-cart-button"))
+    )
+    add_to_cart_button.click()
+
+    # Step 3: Go to checkout
+    cart_icon = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, "cart-icon"))
+    )
+    cart_icon.click()
+
+    checkout_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, "checkout-button"))
+    )
+    checkout_button.click()
+
+    # Step 4: Fill out shipping details
+    shipping_name = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, "shipping-name"))
+    )
+    shipping_name.send_keys("John Doe")
+
+    shipping_address = driver.find_element(By.ID, "shipping-address")
+    shipping_address.send_keys("123 Main St")
+
+    shipping_city = driver.find_element(By.ID, "shipping-city")
+    shipping_city.send_keys("New York")
+
+    shipping_zip = driver.find_element(By.ID, "shipping-zip")
+    shipping_zip.send_keys("10001")
+
+    shipping_phone = driver.find_element(By.ID, "shipping-phone")
+    shipping_phone.send_keys("1234567890")
+
+    # Step 5: Continue to payment
+    continue_to_payment_button = driver.find_element(By.ID, "continue-to-payment")
+    continue_to_payment_button.click()
+
+    # Step 6: Fill out payment details
+    card_number = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, "card-number"))
+    )
+    card_number.send_keys("4111111111111111")  # Dummy Visa card number for testing
+
+    card_expiry = driver.find_element(By.ID, "card-expiry")
+    card_expiry.send_keys("12/25")
+
+    card_cvv = driver.find_element(By.ID, "card-cvv")
+    card_cvv.send_keys("123")
+
+    # Step 7: Confirm payment and complete order
+    place_order_button = driver.find_element(By.ID, "place-order")
+    place_order_button.click()
+
+    # Step 8: Wait for the order confirmation
+    order_confirmation = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "order-confirmation"))
+    )
+
+    print("Order completed successfully!")
+
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    # Close the browser
+    time.sleep(3)
+    driver.quit()
