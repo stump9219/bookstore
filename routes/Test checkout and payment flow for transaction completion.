@@ -1,0 +1,38 @@
+<form id="shipping-form">
+  <h3>Shipping Details</h3>
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" required>
+  
+  <!-- Other shipping fields -->
+
+  <button type="submit">Proceed to Confirmation</button>
+</form>
+
+<script>
+  document.getElementById('shipping-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Collect form data
+    const shippingData = {
+      name: document.getElementById('name').value,
+      // Other shipping fields data here
+    };
+
+    // Simulate a successful submission
+    fetch('/shipping', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(shippingData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        alert('Shipping details captured!');
+        // Redirect to confirmation step or load confirmation page
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  });
+</script>

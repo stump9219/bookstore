@@ -1,14 +1,19 @@
 {
   "name": "bookstore",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "bookstore",
   "main": "server.js",
   "author": "",
+  "license": "ISC",
   "devDependencies": {
     "eslint": "^8.57.0",
     "nodemon": "^3.1.7"
   },
-  "eslintConfig": {},
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -16,11 +21,6 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "chai": "^5.1.1",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "mocha": "^10.7.3",
-    "mongoose": "^8.7.0",
-    "stripe": "^17.1.0"
+    "express": "^4.21.0"
   }
 }

@@ -1,0 +1,40 @@
+<form id="payment-form">
+  <h3>Payment Details</h3>
+  <div id="card-element"></div>
+  <button type="submit">Submit Payment</button>
+</form>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const stripe = Stripe('your_test_public_key');
+  const elements = stripe.elements();
+  const cardElement = elements.create('card');
+  cardElement.mount('#card-element');
+
+  document.getElementById('payment-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    stripe.createToken(cardElement).then(function(result) {
+      if (result.error) {
+        // Handle error
+        alert(result.error.message);
+      } else {
+        // Send the token to the backend for processing
+        fetch('/payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ stripeToken: result.token.id, amount: 5000 })  // Example $50 transaction
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            alert('Payment successful! Charge ID: ' + data.charge_id);
+            // Proceed to order confirmation
+          } else {
+            alert('Payment failed: ' + data.message);
+          }
+        });
+      }
+    });
+  });
+</script>

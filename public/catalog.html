@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .catalog-item {display: block;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Catalog</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/catalog">Catalog</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <input type="text" id="search" placeholder="Search catalog..." onkeyup="filterCatalog()">
+    </section>
+    <section class="catalog-grid" id="catalog-grid">
+      <!-- Catalog items will be inserted here -->
+      <div class="catalog-item" data-name="Eragon">
+        <h2>Eragon</h2>
+        <p>A boy gets a dragon and goes on an adventure.</p>
+      </div>
+      <div class="catalog-item" data-name="Eldest">
+        <h2>Eldest</h2>
+        <p>That boy and his dragon grow up and continue on their adventure.</p>
+      </div>
+      <div class="catalog-item" data-name="Inheritance">
+        <h2>Inheritance</h2>
+        <p>The adventure continues, just with more people and dragons.</p>
+      </div>
+      <div class="catalog-item" data-name="Murtagh">
+        <h2>Murtagh</h2>
+        <p>The brother of the original character also found a dragon and began his adventures.</p>
+      </div>
+      <div class="catalog-item" data-name="A Tale of Two Cities">
+        <h2>A Tale of Two Cities</h2>
+        <p>I've never read this book so I don't know.</p>
+      </div>
+      <div class="catalog-item" data-name="The Little Prince">
+        <h2>The Little Prince</h2>
+        <p>I think this is a French book.</p>
+      </div>
+      <div class="catalog-item" data-name="The Alchemist">
+        <h2>The Alchemist</h2>
+        <p>Brotherhood was better than full metal.</p>
+      </div>
+      <div class="catalog-item" data-name="HP and the Philosopher's Stone">
+        <h2>HP and the Philosophers Stone</h2>
+        <p>Didn't know this book sold over a 100 million copies.</p>
+      </div>
+      <div class="catalog-item" data-name="Dream of the Red Chamber">
+        <h2>Dream of the Red Chamber</h2>
+        <p>This is aparently a mystery book that sold really well.</p>
+      </div>
+      <div class="catalog-item" data-name="The Hobbit">
+        <h2>The Hobbit</h2>
+        <p>The best book on this website to be honest.</p>
+      </div>
+      <div class="catalog-item" data-name="Alice's Adventures in Wonderland">
+        <h2>Alice's Adventures in Wonderland</h2>
+        <p>Alice had depression and this was all in her head to try and cope with reality.</p>
+      </div>
+      <div class="catalog-item" data-name="The Lion, The Witch and the Wardrobe">
+        <h2>The Lion, The Witch, and the Wardrobe.</h2>
+        <p>This one was also about depression and how kids dealt with the reality of one of the world wars.</p>
+      </div>
+      <div class="catalog-item" data-name="She: A History of Adventure">
+        <h2>She: A History of Adventure</h2>
+        <p>Ya no clue on this one what so ever.</p>
+      </div>
+      <div class="catalog-item" data-name="The Da Vinci Code">
+        <h2>The Da Vinci Code</h2>
+        <p>Tom Hanks that is all</p>
+      </div>
+      <div class="catalog-item" data-name="HP and the Chamber of Secrets">
+        <h2>HP and the Chamber of Secrets</h2>
+        <p>another harry potter book, suprising</p>
+      </div>
+      <div class="catalog-item" data-name="The Catcher and the Rye">
+        <h2>The Catcher and the Rye</h2>
+        <p>some thing about rye and how to catch it</p>
+      </div>
+      <div class="catalog-item" data-name="HP and the Prisoner of Azkaban">
+        <h2>HP and the Prisoner of Azkaban</h2>
+        <p>more potter books apparently the whole series sold really well.</p>
+      </div>
+      <div class="catalog-item" data-name="The Bridges of Madison County">
+        <h2>The Bridges of Madison County</h2>
+        <p>Madison county and apparently enough bridges to write a book about it.</p>
+      </div>
+      <div class="catalog-item" data-name="One Hundred Years of Solitude">
+        <h2>One Hundred Years of Solitude</h2>
+        <p>Didn't know there was a book written about the city in skyrim.</p>
+      </div>
+      <div class="catalog-item" data-name="Lolita">
+        <h2>Lolita</h2>
+        <p>Ya I got nothing for this one.</p>
+      </div>
+      <div class="catalog-item" data-name="Heidi">
+        <h2>Heidi</h2>
+        <p>This is a girls name and thats all I know.</p>
+      </div>
+      <div class="catalog-item" data-name="Anne of Green Gables">
+        <h2>Anne of Green Gables</h2>
+        <p>Something about gabbles and them being green.</p>
+      </div>
+      <!-- Add more items as needed -->
+      <a href="index.html" class="positioned">Back to Home</a>
+      </section>
+    <section id="pagination">
+      <button id="prev" onclick="changePage(-1)">Previous</button>
+      <span id="page-info"></span>
+      <button id="next" onclick="changePage(1)">Next</button>
+    </section>
+  </main>
+  <script>
+    function filterCatalog() {
+      console.log('Filter function called');
+      const searchInput = document.getElementById('search').value.toLowerCase();
+      const items = document.querySelectorAll('.catalog-item');
+
+      items.forEach(item => {
+        const itemName = item.getAttribute('dat-name').toLowerCase();
+        if (itemName.includes(searchInput)) {
+          item.style.display = 'block';
+        } else {
+          item.style.disply = 'none';
+        }
+      });
+    }
+
+    // event listener for Enter key press
+    document.getElementById('search').addEventListener('keydown', (event) => {
+      if (event.key == 'Enter') {
+        event.preventDefault();
+        filterCatalog();
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/scripts.js"></script>
+</body>
+</html>
